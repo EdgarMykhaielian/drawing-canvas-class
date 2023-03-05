@@ -1,0 +1,33 @@
+ul {
+    background-color: #2a2c35;
+    gap: 15px;
+    flex-direction: column;
+    width: fit-content;
+    position: absolute;
+    padding: 15px;
+}
+
+li button {
+    height: 100%;
+    width: 100%;
+    background-color: #21252B;
+    border: none;
+    color: aliceblue;
+    padding: 10px;
+    font-family: 'Tilt Warp', cursive;
+}
+
+li input {
+    background-color: #21252b;
+    border: none;
+}
+
+li button:hover {
+    outline: 1px solid whitesmoke;
+    background-color: black;
+}
+
+li button:focus {
+    outline: 1px solid whitesmoke;
+    background-color: black;
+}

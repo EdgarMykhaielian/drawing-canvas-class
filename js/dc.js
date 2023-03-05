@@ -88,12 +88,9 @@ export default class DrawingCanvas {
         }
     }
 
-    polygon({ x1, y1, x2, y2, x3, y3, color }, ...points) {
+    polygon({ points, color }) {
         this.ctx.fillStyle = color;
         this.ctx.beginPath();
-        this.ctx.moveTo(x1, y1);
-        this.ctx.lineTo(x2, y2);
-        this.ctx.lineTo(x3, y3);
 
         for (const { x, y } of points) {
             this.ctx.lineTo(x, y);

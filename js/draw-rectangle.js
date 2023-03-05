@@ -1,3 +1,5 @@
+import { getColor } from "./color-picker.js";
+
 export { startDrawingRectangle };
 
 function startDrawingRectangle(dc, dcOverlay) {
@@ -21,7 +23,7 @@ function startDrawingRectangle(dc, dcOverlay) {
             window.onmouseup = (e2) => {
                 window.onmousemove = null;
                 window.onmouseup = null;
-                
+
                 dcOverlay.clear();
 
                 dc.rectangle({
@@ -29,7 +31,7 @@ function startDrawingRectangle(dc, dcOverlay) {
                     y1: e1.offsetY,
                     x2: e2.offsetX,
                     y2: e2.offsetY,
-                    color: "white",
+                    color: getColor(),
                 });
             };
         };

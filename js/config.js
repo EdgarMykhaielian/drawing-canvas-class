@@ -1,5 +1,5 @@
-export {canvasWidth, canvasHeight, canvasColor}
+export { canvasWidth, canvasHeight, canvasColor };
 
-const canvasWidth = 800;
-const canvasHeight = 800;
-const canvasColor = '#2a2c35';
+const canvasWidth = window.innerWidth * 0.01 * 100;
+const canvasHeight = window.innerHeight * 0.01 * 100;
+const canvasColor = "#2a2c35";

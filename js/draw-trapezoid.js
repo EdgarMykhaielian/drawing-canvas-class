@@ -1,3 +1,5 @@
+import { getColor } from "./color-picker.js";
+
 export { startDrawingTrapezoid };
 
 function startDrawingTrapezoid(dc, dcOverlay) {
@@ -33,7 +35,7 @@ function startDrawingTrapezoid(dc, dcOverlay) {
                 const x = (e2.offsetX + e1.offsetX) / 2;
                 const y = Math.max(e1.offsetY, e2.offsetY);
                 const bottomLength = Math.abs(e2.offsetX - e1.offsetX);
-                const height = Math.abs(e2.offsetY - e1.offsetY)
+                const height = Math.abs(e2.offsetY - e1.offsetY);
 
                 window.onmousemove = (e3) => {
                     const topLength = Math.abs(e3.offsetX - x) * 2;
@@ -62,7 +64,7 @@ function startDrawingTrapezoid(dc, dcOverlay) {
                         bottomLength,
                         topLength,
                         height,
-                        color: "white",
+                        color: getColor(),
                     });
                     window.onmousemove = null;
                     canvas.onmousedown = start;

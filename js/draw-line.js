@@ -1,3 +1,5 @@
+import { getColor } from "./color-picker.js";
+
 export { startDrawingLine };
 
 function startDrawingLine(dc, dcOverlay) {
@@ -28,7 +30,7 @@ function startDrawingLine(dc, dcOverlay) {
                     x2: e2.offsetX,
                     y2: e2.offsetY,
                     thickness: 3,
-                    color: "white",
+                    color: getColor(),
                 });
 
                 dcOverlay.clear();
