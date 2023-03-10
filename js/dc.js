@@ -5,7 +5,9 @@ export default class DrawingCanvas {
         this.canvas = document.createElement("canvas");
         this.canvas.width = width;
         this.canvas.height = height;
-        this.ctx = this.canvas.getContext("2d");
+        this.ctx = this.canvas.getContext("2d", { willReadFrequently: true });
+        this.history = [];
+        this.index = -1;
 
         if (bgColor) {
             this.bgColor = bgColor;
@@ -25,8 +27,20 @@ export default class DrawingCanvas {
         parent.appendChild(this.canvas);
     }
 
+    undo() {
+        if (this.index <= 0) {
+            this.clear();
+        } else {
+            this.index -= 1;
+            this.history.pop();
+            this.ctx.putImageData(this.history[this.index], 0, 0);
+        }
+    }
+
     clear() {
         this.ctx.clearRect(0, 0, this.width, this.height);
+        this.history = [];
+        this.index = -1;
     }
 
     trapezoid({ x, y, bottomLength, topLength, height, thickness, color }) {
@@ -108,5 +122,15 @@ export default class DrawingCanvas {
         this.ctx.moveTo(x1, y1);
         this.ctx.lineTo(x2, y2);
         this.ctx.stroke();
+    }
+    
+    pen({ x1, y1, thickness, color }) {
+        this.ctx.lineWidth = thickness;
+        this.ctx.lineCap = "round";
+        this.ctx.strokeStyle = color;
+        this.ctx.lineTo(x1, y1);
+        this.ctx.stroke();
+        this.ctx.beginPath();
+        this.ctx.moveTo(x1, y1);
     }
 }

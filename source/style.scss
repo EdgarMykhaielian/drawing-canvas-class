@@ -1,5 +1,8 @@
+@use 'reset';
+@use 'switcher';
+@use 'input';
+
 ul {
-    background-color: #2a2c35;
     gap: 15px;
     flex-direction: column;
     width: fit-content;
@@ -12,6 +15,7 @@ li button {
     width: 100%;
     background-color: #21252B;
     border: none;
+    border-radius: 3px;
     color: aliceblue;
     padding: 10px;
     font-family: 'Tilt Warp', cursive;
@@ -20,6 +24,7 @@ li button {
 li input {
     background-color: #21252b;
     border: none;
+    border-radius: 3px;
 }
 
 li button:hover {

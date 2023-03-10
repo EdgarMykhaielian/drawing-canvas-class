@@ -1,5 +1,5 @@
 import { getColor } from "./color-picker.js";
-
+import { getThickness } from "./color-picker.js";
 export { startDrawingLine };
 
 function startDrawingLine(dc, dcOverlay) {
@@ -15,7 +15,7 @@ function startDrawingLine(dc, dcOverlay) {
                     y1: e1.offsetY,
                     x2: e2.offsetX,
                     y2: e2.offsetY,
-                    thickness: 1,
+                    thickness: getThickness(),
                     color: "grey",
                 });
             };
@@ -29,11 +29,15 @@ function startDrawingLine(dc, dcOverlay) {
                     y1: e1.offsetY,
                     x2: e2.offsetX,
                     y2: e2.offsetY,
-                    thickness: 3,
+                    thickness: getThickness(),
                     color: getColor(),
                 });
 
                 dcOverlay.clear();
+                //add history
+                dc.history.push(dc.ctx.getImageData(0, 0, canvas.width, canvas.height))
+                dc.index +=1;
+                console.log(dc.history);
             };
         };
     };

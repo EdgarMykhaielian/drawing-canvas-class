@@ -68,6 +68,12 @@ function startDrawingTrapezoid(dc, dcOverlay) {
                     });
                     window.onmousemove = null;
                     canvas.onmousedown = start;
+
+                    dc.history.push(
+                        dc.ctx.getImageData(0, 0, canvas.width, canvas.height)
+                    );
+                    dc.index += 1;
+                    console.log(dc.history);
                 };
 
                 window.onmouseup = null;
